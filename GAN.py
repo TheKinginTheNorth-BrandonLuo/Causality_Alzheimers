@@ -97,12 +97,6 @@ def define_discriminator(n_inputs=2):
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     return model
 
-def define_generator(latent_dim, n_outputs=2):
-    model = Sequential()
-    model.add(Dense(15, activation='relu', kernel_initializer='he_uniform', input_dim=latent_dim))
-    model.add(Dense(n_outputs, activation='linear'))
-    return model
-
 def define_gan(generator, discriminator):
     discriminator.trainable = False
     model = Sequential()
